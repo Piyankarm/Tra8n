@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Train Between BSR and CSMT (16-04-2025)</h2>
+
+  <button onclick="fetchData()">Refresh</button>
+
+  <div id="output">Loading...</div>
+
+  <script>
+    function fetchData() {
+      const url = "http://piyphp.great-site.net/between.php?from=BSR&to=CSMT&date=16-04-2025";
+
+      document.getElementById("output").textContent = "Fetching data...";
+
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("output").textContent = data;
+        })
+        .catch(error => {
+          document.getElementById("output").textContent = "Error: " + error;
+        });
+    }
+
+    // Auto-load when page opens
+    window.onload = fetchData;
+  </script>
+
+</body>
+</html>
