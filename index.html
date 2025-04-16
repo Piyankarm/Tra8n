@@ -133,7 +133,7 @@
       const to = document.getElementById('to').value;
       const date = document.getElementById('date').value.split('-').reverse().join('-');
 
-      const res = await fetch(`http://0.0.0.0:8080/between.php?from=${from}&to=${to}&date=${date}`);
+      const res = await fetch(`https://piyphp.great-site.net/between.php?from=${from}&to=${to}&date=${date}`);
       const data = await res.json();
 
       if (data.data?.trainList?.length) {
